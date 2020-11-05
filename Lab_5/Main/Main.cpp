@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <stdio.h>
 int main()
@@ -6,15 +6,15 @@ int main()
 	system("cls");
 	system("chcp 1251");
 	double x = 0, y = 0;
-	printf("Введите координаты x и y: ");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ x Рё y: ");
 	scanf("%lf %lf", &x, &y);
-	printf("Ваши координаты x=%0.2lf , y=%0.2lf \n",x,y);
+	printf("Р’Р°С€Рё РєРѕРѕСЂРґРёРЅР°С‚С‹ x=%0.2lf , y=%0.2lf \n",x,y);
 	if ((x>=-1 && x<=1 && y<=1 && y>=0)||(x>=-1 && x<=0 && y<=0 && y>=-1)) {
-		printf("Точка попадает в диапазон :) \n");
+		printf("РўРѕС‡РєР° РїРѕРїР°РґР°РµС‚ РІ РґРёР°РїР°Р·РѕРЅ :) \n");
 		system("pause");
 		return main();
 	}else
-		printf("Точка не попадает в диапазон! \n");
+		printf("РўРѕС‡РєР° РЅРµ РїРѕРїР°РґР°РµС‚ РІ РґРёР°РїР°Р·РѕРЅ! \n");
 	system("pause");
 	return main();
 }
