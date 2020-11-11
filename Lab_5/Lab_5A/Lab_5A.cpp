@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <stdio.h>
 
@@ -8,7 +8,7 @@ int main()
 	system("chcp 1251");
 	int a = 0, b = 0, c = 0;
 	double x1 = 0, x2 = 0, D = 0;
-	printf("Введите коэфициенты квадратного уравнения: ");
+	printf("Р’РІРµРґРёС‚Рµ РєРѕСЌС„РёС†РёРµРЅС‚С‹ РєРІР°РґСЂР°С‚РЅРѕРіРѕ СѓСЂР°РІРЅРµРЅРёСЏ: ");
 	scanf("%d %d %d", &a, &b, &c);
 	D = b * b - 4 * a * c;
 
@@ -19,7 +19,7 @@ int main()
 		return 0;
 	}
 	else if (D<0) {
-		printf("Корней нет!");
+		printf("РљРѕСЂРЅРµР№ РЅРµС‚!");
 		return 0;
 	}
 	else
