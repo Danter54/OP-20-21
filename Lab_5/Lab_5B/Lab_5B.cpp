@@ -8,29 +8,18 @@ int main()
 	unsigned int k = 0 ;
 	printf("Веедите количество грибов в корзине: ");
 	scanf("%u", &k);
-	if (k == 1 || (k % 10 == 1 && k!=11)) {
-		printf("У тебя %u гриб в корзине.\n", k);
+	if (k%10==0 || k%10>4 || k%100==11 ||(k>10 &&k<20)) {
+		printf("У тебя %u грибов в корзине\n", k);
 		system("pause");
 		return main();
 	}
-	else if ((k>1 && k<5)) {
-		printf("У тебя %u гриба в корзине.\n", k);
+	if (k%10==1) {
+		printf("У тебя %u гриб в корзине\n", k);
 		system("pause");
 		return main();
 	}
-	else if (k>20 && (k%10==2 || k%10==3 ||  k%10==4)) {
-		printf("У тебя %u гриба в корзине.\n", k);
-		system("pause");
-		return main();
-	}
-	else if (k%10==0 || (k>=5 && k<20)||(k%10>4)) {
-
-		printf("У тебя %u грибов в корзине.\n", k);
-		system("pause");
-		return main();
-	}
-	else if (k==0) {
-		printf("У тебя нет грибов в корзине.\n");
+	if (k%10>1 && k%10<5) {
+		printf("У тебя %u гриба в корзине\n", k);
 		system("pause");
 		return main();
 	}
