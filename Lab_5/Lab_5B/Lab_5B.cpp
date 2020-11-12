@@ -23,7 +23,7 @@ int main()
 		system("pause");
 		return main();
 	}
-	else if (k%10==0 || (k>=5 && k<20)||(k%10==5 || k%10==6 || k % 10 == 7 || k % 10 == 8 || k % 10 == 9)) {
+	else if (k%10==0 || (k>=5 && k<20)||(k%10>4)) {
 
 		printf("У тебя %u грибов в корзине.\n", k);
 		system("pause");
