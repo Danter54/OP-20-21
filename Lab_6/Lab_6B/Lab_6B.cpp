@@ -28,5 +28,9 @@ int main()
 
 	mark =(mark/n) * 12;
 
+	if (mark < 1) {
+		mark = 1;
+	}
+
 	printf("Твоя оценка = %0.0lf\n",mark);
 }
