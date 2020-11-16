@@ -1,4 +1,4 @@
-#define _CRT_SECURE_NO_WARNINGS
+п»ї#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <stdio.h>
 #include <ctime>
@@ -10,25 +10,25 @@ int main()
 	srand(time(NULL));
 
 	int cnum =1 + rand()%100, ynum,i=1;
-	printf("Угадай число которое я загадал\n");
+	printf("РЈРіР°РґР°Р№ С‡РёСЃР»Рѕ РєРѕС‚РѕСЂРѕРµ СЏ Р·Р°РіР°РґР°Р»\n");
 
 	for (i;;i++) {
 
-		printf("Введи свое число: ");
+		printf("Р’РІРµРґРё СЃРІРѕРµ С‡РёСЃР»Рѕ: ");
 		scanf("%d",&ynum);
 
 		if(ynum<cnum) {
-			printf("Твоё число меньше моего\n");
+			printf("РўРІРѕС‘ С‡РёСЃР»Рѕ РјРµРЅСЊС€Рµ РјРѕРµРіРѕ\n");
 		}
 
 		else if (ynum > cnum) {
-			printf("Твоё число больше моего\n");
+			printf("РўРІРѕС‘ С‡РёСЃР»Рѕ Р±РѕР»СЊС€Рµ РјРѕРµРіРѕ\n");
 		}
 
 		else break;
 	}
 
-	printf("Ты угадал!!!\n");
-	printf("Количество попыток: %d", i);
+	printf("РўС‹ СѓРіР°РґР°Р»!!!\n");
+	printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РїРѕРїС‹С‚РѕРє: %d", i);
 	return 0;
 }

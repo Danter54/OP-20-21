@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <math.h>
 #include <stdio.h>
 
@@ -21,9 +21,9 @@ int main()
 		}else break;
 
 		if (n == 9) 
-			printf("Сумма 10 членов ряда = %10.7lf\n",sum);
+			printf("РЎСѓРјРјР° 10 С‡Р»РµРЅРѕРІ СЂСЏРґР° = %10.7lf\n",sum);
 	}
 
-	printf("Полная сумма ряда = %10.7lf\n", sum);
+	printf("РџРѕР»РЅР°СЏ СЃСѓРјРјР° СЂСЏРґР° = %10.7lf\n", sum);
 	return 0;
 }
