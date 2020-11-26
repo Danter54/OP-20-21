@@ -10,8 +10,7 @@ int main() {
 	setlocale(LC_ALL, "ru");
 
 	int arr[size], sum = 0, tempsum = 0, mintemp_I = 0, maxtemp_I = 0;
-	bool istrue = false;
-
+	bool istrue;
 	for (int i = 0; i < size; i++) {
 		arr[i] = rand() % ( maxarr - minarr + 1 ) - 100; //Об'явление массива
 	}
