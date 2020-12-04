@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctime>
-#define N (10)
 
 
 int main() {

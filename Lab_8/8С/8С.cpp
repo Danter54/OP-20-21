@@ -28,11 +28,13 @@ int main()
 	printf("Quantity: %d\n", it);
 
 	num = atoi(count);
-
-	printf("Revert: ");
+	int backnum = 0, k = pow(10,it-1);
+	printf("Backwards: ");
 	while (num!=0) {
 		temp = num % 10;	//Число наоборот
 		num /= 10;
-		printf("%d", temp);
+		backnum += temp * k;
+		k /= 10;
 	}
+	printf("%d",backnum);
 }
