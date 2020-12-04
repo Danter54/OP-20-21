@@ -36,14 +36,13 @@ int main()
 		{
 
 			if (mas[i][j] > MaxTemp) {
-				I_Max = i;
 				J_Max = j;
 				MaxTemp = mas[i][j];
 			}
 		}
 		for (int j = 0; j < N; j++) {
 			if (j == 0) {
-				cout <<setw(5) <<mas[I_Max][J_Max];
+				cout <<setw(5) <<mas[i][J_Max];
 			}
 			else if (j == J_Max) {
 				cout<< setw(5) << mas[i][0];
@@ -62,7 +61,6 @@ int main()
 		for (int j = 1; j < N; j++)
 		{
 			if (mas[i][j]<MinTemp) {
-				I_Min = i;
 				J_Min = j;
 				MinTemp = mas[i][j];
 			}
@@ -75,7 +73,7 @@ int main()
 				cout << setw(5) << mas[i][N - 1];
 			}
 			else if (j == N - 1) {
-				cout << setw(5) << mas[I_Min][J_Min];
+				cout << setw(5) << mas[i][J_Min];
 			}
 			else cout << setw(5) << mas[i][j];
 		}
