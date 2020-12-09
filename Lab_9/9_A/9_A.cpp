@@ -12,74 +12,78 @@ int main()
 	{
 		for (int j = 0; j < N; j++)
 		{
-			mas[i][j] = rand()%201-100;
+			mas[i][j] = rand() % 201 - 100;
 		}
 	}
-	int I_Max = 0, J_Max = 0, I_Min = 0, J_Min = 0;
+
 	cout << "Current Array: \n";
 	for (int i = 0; i < N; i++)
 	{
 		for (int j = 0; j < N; j++)
 		{
-			cout<<setw(5)<<mas[i][j];
+			cout << setw(5) << mas[i][j];
 		}
 		cout << endl;
 
 	}
-	cout << endl;
-	int MaxTemp=0;
-	cout << "Max array: \n";
-	for (int i = 0, j=0; i < N; i++)
+	int Maxmas[N][N];
+	for (int i = 0; i < N; i++)
 	{
-		MaxTemp = mas[i][j];
+		for (int j = 0; j < N; j++)
+		{
+			Maxmas[i][j] = mas[i][j];
+		}
+	}
+	int temp = 0,j_max=0;
+	cout << "Max array" << endl;
+	for (int i = 0; i < N; i++)
+	{
+		temp = Maxmas[i][0];
+		j_max = 0;
 		for (int j = 1; j < N; j++)
 		{
-
-			if (mas[i][j] > MaxTemp) {
-				J_Max = j;
-				MaxTemp = mas[i][j];
+			if (Maxmas[i][j]>temp) {
+				temp = Maxmas[i][j];
+				j_max = j;
 			}
 		}
+		temp = Maxmas[i][0];
+		Maxmas[i][0] = Maxmas[i][j_max];
+		Maxmas[i][j_max] = temp;
 		for (int j = 0; j < N; j++) {
-			if (j == 0) {
-				cout <<setw(5) <<mas[i][J_Max];
-			}
-			else if (j == J_Max) {
-				cout<< setw(5) << mas[i][0];
-			}
-			else cout<<setw(5) << mas[i][j];
+			cout <<setw(5)<< Maxmas[i][j];
 		}
 		cout << endl;
+
+	}
+	int I_min = 0;
+	for (int j = 0; j < N; j++)
+	{
+		temp = mas[0][j];
+		I_min = 0;
+		for (int i = 0; i < N; i++) {
+			if (mas[i][j]<temp) {
+				temp = mas[i][j];
+				I_min = i;
+			}
+		}
+		if (I_min==N-1) {
+			continue;
+		}
+		else {
+			temp = mas[N - 1][j];
+			mas[N - 1][j] = mas[I_min][j];
+			mas[I_min][j] = temp;
+		}
 		
 	}
-
-	int MinTemp = 0;
-
-	cout << "Min Array\n";
-	for (int i = 0, j=0; i < N; i++) {
-		MinTemp = mas[i][j];
-		for (int j = 1; j < N; j++)
+	cout << "Min array:" << endl;
+	for (int i = 0; i < N; i++)
+	{
+		for (int j = 0; j < N; j++)
 		{
-			if (mas[i][j]<MinTemp) {
-				J_Min = j;
-				MinTemp = mas[i][j];
-			}
-
-		}
-
-
-		for (int j = 0; j < N; j++) {
-			if (j == J_Min) {
-				cout << setw(5) << mas[i][N - 1];
-			}
-			else if (j == N - 1) {
-				cout << setw(5) << mas[i][J_Min];
-			}
-			else cout << setw(5) << mas[i][j];
+			cout << setw(5) << mas[i][j];
 		}
 		cout << endl;
-
-
-
 	}
 }
