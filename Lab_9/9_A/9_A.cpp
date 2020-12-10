@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <iomanip>
 using namespace std;
-#define N (10)
+#define N (5)
 int main()
 {
 	int mas[N][N]{};
