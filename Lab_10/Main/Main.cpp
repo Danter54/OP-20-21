@@ -7,14 +7,13 @@ int mas3[N];
 
 int transform(int mas[N], int size, int B , int C) {
 
-	int mas2[N][N]{}, count = 0;
+	int mas2[N][N]{};
 	for (int i = 0; i < B; i++) {
-		for (int j = 0; j < C; j++, count++) {	//Переписывание матрицы
-			mas2[i][j] = mas[count];
+		for (int j = 0; j < C; j++) {	//Переписывание матрицы
+			mas2[i][j] = mas[C * i + j];
 		}
 	}
 
-	int temp=0;
 	cout << "Прежний массив: " << endl;
 
 	for (int i = 0; i < B; i++)
@@ -27,9 +26,10 @@ int transform(int mas[N], int size, int B , int C) {
 	}
 
 	cout << "Отзеркаленый массив: " << endl;
-
+	
 	for (int i = 0; i < B; i++) {
 		for (int j = 0; j < C / 2; j++) {
+			int temp = 0;
 			temp = mas2[i][j];
 			mas2[i][j] = mas2[i][(C - 1) - j];	//Зеркальное отражение
 			mas2[i][(C - 1) - j] = temp;
@@ -47,10 +47,10 @@ int transform(int mas[N], int size, int B , int C) {
 	}
 
 
-	count = 0;
+	
 	for (int i = 0; i < B; i++) {
-		for (int j = 0; j < C; j++,count++) {
-			mas3[count] = mas2[i][j];
+		for (int j = 0; j < C; j++) {
+			mas3[C*i+j] = mas2[i][j];
 		}
 	}
 
