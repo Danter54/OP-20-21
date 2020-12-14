@@ -29,7 +29,7 @@ int main()
 	{
 		for (int j = 0; j < n; j++)
 		{
-			mas1[i][j] = rand()%21-10;
+			mas1[i][j] = rand()%4;
 		}
 	}
 
@@ -37,7 +37,7 @@ int main()
 	{
 		for (int j = 0; j < l; j++)
 		{
-			mas2[i][j] = rand() % 21 - 10;
+			mas2[i][j] = rand() %4;
 		}
 	}
 
