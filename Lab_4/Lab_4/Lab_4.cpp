@@ -13,8 +13,8 @@ int main(void) {
 	scanf_s("%hu", &d);
 	printf("Введите количество разрядов сдвига(0...511):");
 	scanf_s("%hu", &n);
-
-	UnitStateWord = (t & 0x37) << 10;
+	UnitStateWord = 0xd000;
+	UnitStateWord |= (t & 0x37) << 10;
 	UnitStateWord |= (d & 1) << 9;
 	UnitStateWord |= n & 0x1FF;
 	printf("\nСлово состояния устройства = %04x\n",

@@ -3,7 +3,7 @@
 #include "windows.h"
 #include <chrono>
 using namespace std;
-#define N (45)
+#define N (5)
 
 int insert(int mas[N]) {
 	for (int i = 1; i < N; i++) {

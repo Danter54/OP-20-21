@@ -10,7 +10,8 @@ int main(void)
 
 	printf("Введите слово состояния устройства(0xFFFF): ");
 	scanf_s("%hx", &UnitStateWord);
-	t = (UnitStateWord >> 10) & 0x3B;
+	UnitStateWord -= 0xd000;
+	t = (UnitStateWord >> 10) & 0x37;
 	d = (UnitStateWord >> 9) & 1;
 	n = UnitStateWord & 0x1FF;
 	printf("\nТип сдвига: %d\n",t);
