@@ -2,13 +2,16 @@
 #include <iomanip>
 #include <time.h>
 #include <chrono>
-using namespace std;
-#define N (45)
+#define N (5)
 #define M (5)
-double dur1[M]{0};
-double dur2[M]{0};
-double dur3[M]{0};
+using namespace std;
 
+int random(int mas[N]) {
+	for (int i = 0; i < N; i++) {
+		mas[i] = rand() % 201 - 100;
+	}
+	return mas[N];
+}
 int insert(int mas[N]) {
 	for (int i = 1; i < N; i++) {
 		int key = mas[i];
@@ -18,13 +21,6 @@ int insert(int mas[N]) {
 			mas[j] = key;
 			j--;
 		}
-	}
-	return mas[N];
-}
-
-int random(int mas[N]) {
-	for (int i = 0; i < N; i++) {
-		mas[i]=rand()%201-100;
 	}
 	return mas[N];
 }
@@ -46,46 +42,47 @@ int revsort(int mas[N]) {
 	return mas[N];
 }
 
-int main()
-{
-	setlocale(LC_ALL,"ru");
-	int mas[N]{0};
-	srand(time(0));
+int main() {
+	setlocale(LC_ALL, "Ru");
+	double dur1[M]{ 0 };
+	double dur2[M]{ 0 };
+	double dur3[M]{ 0 };
 
-	cout << "*******************************" << endl;
-	cout << "|     Расчётно-графическое    |" << endl;
-	cout << "|           задание           |" << endl;
-	cout << "|     Сортировка 'Вставкой'   |" << endl;
-	cout << "******************************" << endl;
+	int mas1[N]{ 0 };
+	int mas2[N]{ 0 };
+	int mas3[N]{ 0 };
 
+	int mas[N]{ 0 };
+
+	random(mas1);
+	for (int i = 0; i < N; i++) {
+		mas2[i] = mas1[i];
+		mas3[i] = mas1[i];
+	}
+
+	insert(mas2);
+	revsort(mas3);
+
+	cout << "****************************" << endl;
+	cout << "|  Розрахунково- графічне  |" << endl;
+	cout << "|         завдання         |" << endl;
+	cout << "****************************" << endl;
 
 	for (int i = 0; i < M; i++) {
-		cout << "===========================================" << endl;
-		cout << "Ход №: "<<i+1<<endl;
-		random(mas);
-		cout << "Прежний массив: ";
-		for (int q = 0; q < N; q++) {
-			cout << mas[q]<<" ";
+
+		for (int j = 0; j < N; j++) {
+			mas[j] = mas1[j];
 		}
-		cout << endl;
 
 		auto start = chrono::high_resolution_clock::now();
 		insert(mas);
 		auto end = chrono::high_resolution_clock::now();
-		chrono::duration<double> duration = end- start;
+		chrono::duration<double> duration = end - start;
 		dur1[i] = duration.count();
-		cout << "Отсортированый массив: ";
-		for (int q = 0; q < N; q++) {
-			cout << mas[q] << " ";
-		}
-		cout << endl << endl;
 
-		/*Сортировка массива(Упорядоченый)*/
-		cout << "Массив до сортировки(упорядоченый): ";
-		for (int q = 0; q < N;q++) {
-			cout << mas[q]<<" ";
+		for (int j = 0; j < N; j++) {
+			mas[j] = mas2[j];
 		}
-		cout << endl;
 
 		start = chrono::high_resolution_clock::now();
 		insert(mas);
@@ -93,56 +90,102 @@ int main()
 		duration = end - start;
 		dur2[i] = duration.count();
 
-		cout << "Отсортированый масив: ";
-		for (int q = 0; q < N;q++) {
-			cout << mas[q] << " ";
+		for (int j = 0; j < N; j++) {
+			mas[j] = mas3[j];
 		}
-		cout << endl << endl;;
-
-		revsort(mas); //Сортировка наоборот
-		cout << "Прежний масив(Отсортированый наоборот): ";
-		for (int q = 0; q < N; q++) {
-			cout << mas[q] << " ";
-		}
-		cout << endl;
 
 		start = chrono::high_resolution_clock::now();
 		insert(mas);
 		end = chrono::high_resolution_clock::now();
 		duration = end - start;
 		dur3[i] = duration.count();
-		cout << "Отсортированый масив: ";
-		for (int q = 0; q < N; q++) {
-			cout << mas[q] << " ";
-		}
-		cout << endl;
-
 	}
 
-	for (int q = 0; q < 54;q++) {
-		cout << '+';
+	cout << endl;
+	cout << "Время выполнения сортировки: " << endl;
+	for (int i = 0; i < M; i++) {
+		cout << setprecision(2) << scientific << dur1[i] << ' ';
+	}
+
+	int min_i = 0, max_i = 0;
+	double max_dur = dur1[0], min_dur = dur1[0];
+	double sum = 0;
+
+	for (int i = 0; i < M; i++) {
+		if (dur1[i] < min_dur) {
+			min_dur = dur1[i];
+			min_i = i;
+		}
+		if (dur1[i] > max_dur) {
+			max_dur = dur1[i];
+			max_i = i;
+		}
+	}
+	double L = M;
+	for (int i = 0; i < M; i++) {
+		if (i == max_i || i == min_i) {
+			continue;
+		}
+		else sum += dur1[i];
 	}
 	cout << endl;
+	cout << "Среднее время сортировки неупорядоченого массива= " << setprecision(2) << scientific << sum / (L - 2.0) << endl;
 
-	cout << "Время сортировки (Неотсортированого массива:)"<<endl;
-	for (int q = 0; q < M; q++)
-	{
-		cout <<q+1<<". "<< setprecision(2) << scientific << dur1[q] << " " << endl;
+	cout << endl;
+	cout << "Время выполнения сортировки: " << endl;
+	for (int i = 0; i < M; i++) {
+		cout << setprecision(2) << scientific << dur2[i] << ' ';
 	}
+	sum = 0; min_i = 0; max_i = 0;
+	min_dur = dur2[0];	max_dur = dur2[0];
 
-	cout << "Время сортировки (Упорядоченого массива:)" << endl;
-	for (int q = 0; q < M; q++)
-	{
-		cout << q + 1 << ". " << setprecision(2) << scientific << dur2[q] << " " << endl;
+
+	for (int i = 0; i < M; i++) {
+		if (dur2[i] < min_dur) {
+			min_dur = dur1[i];
+			min_i = i;
+		}
+		if (dur2[i] > max_dur) {
+			max_dur = dur2[i];
+			max_i = i;
+		}
 	}
-
-	cout << "Время сортировки (Упорядоченого массива наоборот:)" << endl;
-	for (int q = 0; q < M; q++)
-	{
-		cout << q + 1 << ". " << setprecision(2) << scientific << dur3[q] << " " << endl;;
-		//cout << dur1[q]<<' ';
+	for (int i = 0; i < M; i++) {
+		if (i == max_i || i == min_i) {
+			continue;
+		}
+		else sum += dur2[i];
 	}
+	cout << endl;
+	cout << "Среднее время сортировки упорядоченного массива = " << setprecision(2) << scientific << sum / (L - 2.0) << endl;
 
-	system("pause");
+	cout << endl;
+	cout << "Время выполнения сортировки: " << endl;
+	for (int i = 0; i < M; i++) {
+		cout << setprecision(2) << scientific << dur3[i] << ' ';
+	}
+	sum = 0; min_i = 0; max_i = 0;
+	min_dur = dur3[0];	max_dur = dur3[0];
+
+
+	for (int i = 0; i < M; i++) {
+		if (dur3[i] < min_dur) {
+			min_dur = dur3[i];
+			min_i = i;
+		}
+		if (dur2[i] > max_dur) {
+			max_dur = dur3[i];
+			max_i = i;
+		}
+	}
+	for (int i = 0; i < M; i++) {
+		if (i == max_i || i == min_i) {
+			continue;
+		}
+		else sum += dur3[i];
+	}
+	cout << endl;
+	cout << "Среднее время сортировки упорядоченного массива(наоборот) = " << setprecision(2) << scientific << sum / (L - 2.0);
+
 	return 0;
 }
