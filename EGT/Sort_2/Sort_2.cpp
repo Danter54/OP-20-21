@@ -2,8 +2,8 @@
 #include <iomanip>
 #include <time.h>
 #include <chrono>
-#define N (5)
-#define M (5)
+#define N (45)
+#define M (20)
 using namespace std;
 
 int random(int mas[N]) {
