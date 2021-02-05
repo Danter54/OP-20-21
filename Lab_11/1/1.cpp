@@ -3,33 +3,28 @@
 #define I (10)
 using namespace std;
 
-int Foo (int mas[],int N){
-	if (N>0){
-		if (N == 1) {
-			if (mas[0] > 0) {
-				return mas[0];
-			}
-			else return 0;
-		}
-		if (N > 1) {
-			if (mas[N - 1] > 0) {
-				return mas[N-1] + Foo(mas, N - 1);
-			}
-			else return Foo(mas,N-1);
-		}
-	}
+ int Sum (int mas[],int N){
+	 int sum = 0;
+	 if (mas[N] > 0) sum = mas[N]; // 
+	 if (N == 0) return sum; // Условие выхода
+	 return sum + Sum(mas, N - 1);
 }
 
 int main()
 {
-	srand(time (NULL));
+	setlocale(LC_ALL,"RU");
+	srand(time (0));
 	int mas[I]{};
 	for (int i = 0; i < I; i++) {
 		mas[i] = rand()%200-100;
 	}
-
+	cout << "Наш масив: ";
+	for (int i = 0; i < I; i++) {
+		cout << mas[i]<<" ";
+	}
+	cout << endl;
 	int N = sizeof(mas) / sizeof(int);
-	int sum = 0;
-	cout << Foo(mas,N);
+
+	cout <<"Сумма массива: "<< Sum(mas,N-1);
 	return 0;
 }
