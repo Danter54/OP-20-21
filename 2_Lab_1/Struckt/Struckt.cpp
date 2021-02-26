@@ -57,7 +57,8 @@ int r_input(int count) {
 void sort(int count) {
 	struct libr x;
 	int m;
-	for (int i = 0; i < count - 1; i++) {
+	cout << "Происходит сортировка..."<<endl;
+	for (int i = 0; i < count ; i++) {
 		for (int j = 0; j < count; j++) {
 			if (strcmp(book[i].athr,book[j].athr)<0) {
 				x = book[i];
