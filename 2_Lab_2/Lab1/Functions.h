@@ -1,8 +1,9 @@
-﻿#pragma once
+﻿#ifndef HEADER_INCLUDER
+#define HEADER_INCLUDER
+
 #include <iostream>
 using namespace std;
 #define N 10
-#define PRINT_TYPE Input(library book[N])
 struct library {
 	char athr[10];
 	char name[10];
@@ -26,6 +27,12 @@ void Sort(library book[N],int count);
 #endif
 
 
-#ifdef PRINT_TYPE
-	#define PRINT_TYPE Input(library book[N])
+#ifndef PRINT_TYPE1
+	#define PRINT_TYPE1 Input(book)
 #endif  
+
+#ifndef PRINT_TYPE2
+#define PRINT_TYPE2 Rand_input(book)
+#endif  
+
+#endif

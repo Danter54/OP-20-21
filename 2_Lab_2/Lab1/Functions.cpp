@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "Functions.h"
 
 int Input(library book[N]) {
 	DEBUG
@@ -19,11 +19,18 @@ int Input(library book[N]) {
 
 int Rand_input (library book[N]) {
 	DEBUG
-		char surname[10][10] = { "Аранов","Сидоров","Сыч","Великий","Гусев","Волков","Смирнов","Новиков","Черных","Зайцев" };
-	char name[10][10] = { "Наука","Системы","Вселенная","Биология","Алгебра","Сказки","Пьесы","Романсы","Драмы","Алегории" };
-	char group[3] = { 'Х','У','С' };
+		char surname[10][10] = { "Аранов","Сидоров","Сыч",
+								"Великий","Гусев","Волков",
+								"Смирнов","Новиков","Черных","Зайцев" };
+
+		char name[10][10] = { "Наука","Системы","Вселенная",
+						"Биология","Алгебра","Сказки",
+						"Пьесы","Романсы","Драмы","Алегории" };
+	
+		char group[3] = { 'Х','У','С' };
 
 		int count;
+
 	cout << "Сколько книг вы хотите ввести: ";
 	cin >> count;
 
@@ -77,6 +84,7 @@ void Sort(library book[N], int count) {
 	DEBUG
 		struct library x;
 	int m;
+	cout << "Сортировка...\n";
 	for (int i = 0; i < count; i++) {
 		for (int j = 0; j < count; j++) {
 			if (strcmp(book[i].athr, book[j].athr) < 0) {

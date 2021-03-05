@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <iomanip>
-#define n (9)
+#define n (10)
 using namespace std;
 
 int main() {
@@ -11,7 +11,7 @@ int main() {
         }
     }
     for (int j = 1; j < n; j++) {
-        for (int i = 0; i <= 8 - j; i++) {
+        for (int i = 0; i <= n-1 - j; i++) {
             arr[(n-1) - i][j + i] = count++;
         }
     }
@@ -20,7 +20,7 @@ int main() {
     {
         for (int j = 0; j < n; j++)
         {
-            cout << setw(3) << arr[i][j];
+            cout << setw(4) << arr[i][j];
         }
         cout << endl;
     }

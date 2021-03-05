@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "Functions.h"
 int main() {
 	setlocale(LC_ALL, "ru");
 	system("chcp 1251");
@@ -18,12 +18,12 @@ int main() {
 		cin >> num;
 		switch (num)
 		{
-		case (1): count=Input(book); break;
-		case (2): count=Rand_input(book); break;
+		case (1): count= PRINT_TYPE1; break;
+		case (2): count= PRINT_TYPE2; break;
 		case (3): Sort(book,count); break;
 		case (4): Output(book,count); break;
 		case (0): return 0;
-		default:cout<<"Вы ввели неверное значение!!!";
+		default:cout<<"Вы ввели неверное значение!!!\n";
 		}
 	}
 	return 0;

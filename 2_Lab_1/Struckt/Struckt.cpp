@@ -56,7 +56,6 @@ int r_input(int count) {
 
 void sort(int count) {
 	struct libr x;
-	int m;
 	cout << "Происходит сортировка..."<<endl;
 	for (int i = 0; i < count ; i++) {
 		for (int j = 0; j < count; j++) {
@@ -87,7 +86,6 @@ void output(int count) {
 
 
 int switcher(int num,int count) {
-
 	switch (num) {
 	case 1: count=input(count); break;
 	case 2: count=r_input(count); break;
