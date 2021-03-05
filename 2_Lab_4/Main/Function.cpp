@@ -4,49 +4,42 @@ void Filling_array (int *arr, int size) {
 
 	srand(time(NULL));
 
-	for (size_t i = 0; i < size; i++)
+	for (int i = 0; i < size; i++)
 	{
 		*(arr+i) = rand() % 2 - 2;
 	}
 }
 
-void Main_function(int* arr, int size) {
+int *Main_function(int *arr, int size, int *size2) {
 
 	double average = 0;
-	std::cout << "Ваш массив: ";
-	for (int i = 0; i < size; i++) {
-		std::cout << *(arr+i)<<' ';
-	}
-	std::cout << std::endl;
+	int count = 0;
+	
+	
 
 	for (int i = 0; i < size; i++) {
 		average += *(arr+i);
 	}
-	average /= size;
 
-	std::cout << "Среднее значение: " << average << std::endl;
+	average = average / size;
 
-	int size_b = 0;
+	std::cout << "Среднее значение: " << average;
 
-	for (int i = 0; i < size;i++) {
+	for (int i = 0; i < size; i++) {
 		if (*(arr+i)<average) {
-			size_b++;
+			count++;
 		}
 	}
 
-	int* b = new int[size_b];
+	int *array = new int[count];
+	*size2 = count;
 
-	for (int i = 0,j=0; i < size; i++) {
-		if (*(arr + i) < average) {
-			*(b+j) = *(arr+i);
+	for (int i = 0, j=0; i < size; i++) {
+		if (*(arr+i)<average) {
+			*(array + j) = *(arr+i);
 			j++;
 		}
 	}
 
-	std::cout << "Новый массив(елементы которого меньше среднего): ";
-	for (int i = 0; i < size_b;i++) {
-		std::cout << *(b+i)<<' ';
-	}
-
-	delete[] b;
+	return array;
 }

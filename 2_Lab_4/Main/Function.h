@@ -9,6 +9,6 @@
 #include <time.h>
 
 void Filling_array (int *arr, int size);
-void Main_function(int* arr, int size);
+int *Main_function(int *arr, int size, int*size2);
 
 #endif
