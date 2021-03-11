@@ -10,31 +10,19 @@ void Rand_Num_Gen(int *a, int count) {
 }
 
 
-void Main_Function(int *a, int* b, int count) {
-	std::cout << "========== Main function ==========\n";
-	std::cout << "Our array: ";
+int *Main_Function(int *a, int* b, int count, double* average, int*size_b) {
+
 	for (int i = 0; i < count; i++) {
-		std::cout << *(a+i) << ' ';
+		*average += *(a + i);
 	}
-	std::cout << std::endl;
+	*average /= count;
 
-
-	double average = 0;
-	int j = 0;
-	for (int i = 0; i < count; i++) average += *(a+i);
-	average = average / count;
-	std::cout << "Our average: " << average <<" ;"<< std::endl;
-
-	for (int i = 0; i < count; i++) {
-		if (*(a+i) < average) {
-			*(b+j) = *(a+i);
+	for (int i = 0,j=0; i < count; i++) {
+		if (*(a+i)<*average) {
+			*(b + j) = *(a + i);
+			(*size_b)++;
 			j++;
 		}
 	}
-	
-	std::cout << "Our new array: ";
-	for (int i = 0; i < j; i++) {
-		std::cout << *(b+i) << ' ';
-	}
-	std::cout<<std::endl;
+	return 0;
 }

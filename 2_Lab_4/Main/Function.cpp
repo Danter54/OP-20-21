@@ -1,45 +1,33 @@
-#include "Function.h"
+п»ї#include "Function.h"
 
-void Filling_array (int *arr, int size) {
-
+void array_filling(int* arr, int size) {
 	srand(time(NULL));
 
-	for (int i = 0; i < size; i++)
-	{
-		*(arr+i) = rand() % 2 - 2;
+	for (int i = 0; i < size; i++) {
+		*(arr + i) = rand() % 10 - 5;
 	}
 }
 
-int *Main_function(int *arr, int size, int *size2) {
+void average_func(int* arr, int* newarr, int size, double *average, int* new_size) {
 
-	double average = 0;
 	int count = 0;
-	
-	
 
 	for (int i = 0; i < size; i++) {
-		average += *(arr+i);
+		*average += *(arr + i);
 	}
 
-	average = average / size;
-
-	std::cout << "Среднее значение: " << average;
+	*average /= size;
 
 	for (int i = 0; i < size; i++) {
-		if (*(arr+i)<average) {
-			count++;
+		if ( *(arr+i) < (*average) ) {
+			*(newarr + *new_size) = *(arr+i);
+			(*new_size)++;
 		}
 	}
 
-	int *array = new int[count];
-	*size2 = count;
-
-	for (int i = 0, j=0; i < size; i++) {
-		if (*(arr+i)<average) {
-			*(array + j) = *(arr+i);
-			j++;
-		}
-	}
-
-	return array;
 }
+
+
+
+
+

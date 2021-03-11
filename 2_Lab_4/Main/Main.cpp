@@ -1,32 +1,39 @@
-#include"Function.h"
+#include "Function.h"
 
 
-int main()
-{
-	setlocale(LC_ALL, "RU");
 
-	int size;
-	std::cout << "Введите размер массива: ";
-	std::cin >> size;
+void main() {
+	setlocale(LC_ALL,"RU");
 
-	int* arr = new int[size];
+	int size = 0;
+	double average = 0;
+	int size_of_new_array = 0;
 
-	Filling_array(arr, size);
+	printf("Введите размер массива: ");
+	scanf_s("%d", &size);
 
-	std::cout << "Наш массив: ";
+	int* array = new int[size];
+	int* new_array = new int[size];
+
+	array_filling(array,size);
+
+	printf("Наш массив: ");
+
 	for (int i = 0; i < size; i++) {
-		std::cout << *(arr + i) << ' ';
+		printf("%d ",*(array+i));
 	}
-	std::cout << std::endl;
-	int size_arr2=0;
-	int* arr2 = Main_function(arr, size, &size_arr2);
-	std::cout << "\nНаш новый массив: ";
-	for (int i = 0; i < size_arr2; i++) {
-		std::cout << *(arr2+i)<<' ';
+	printf("\n");
+	average_func(array, new_array, size, &average, &size_of_new_array);
+
+	printf("Average: %1.2lf\n",average);
+
+	printf("Новый массив: ");
+
+	for (int i = 0; i < size_of_new_array; i++) {
+		printf("%d ",*(new_array+i));
 	}
 
-	std::cout << std::endl;
-	delete[] arr, arr2;
-	
-	return 0;
+
+	delete [] array;
+	delete [] new_array;
 }
