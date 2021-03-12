@@ -8,25 +8,34 @@ void array_filling(int* arr, int size) {
 	}
 }
 
-void average_func(int* arr, int* newarr, int size, double *average, int* new_size) {
+int *function(int *array_1, int size_1, int *size_2, double *average) {
 
-	int count = 0;
 
-	for (int i = 0; i < size; i++) {
-		*average += *(arr + i);
+	for (int i = 0; i < size_1; i++)
+	{
+		*average += *(array_1+i);
 	}
 
-	*average /= size;
 
-	for (int i = 0; i < size; i++) {
-		if ( *(arr+i) < (*average) ) {
-			*(newarr + *new_size) = *(arr+i);
-			(*new_size)++;
+	*average /= size_1;
+
+	for (int i = 0; i < size_1; i++) {
+		if (*(array_1+i)<(*average)) {
+			(*size_2)++;
 		}
 	}
 
-}
+	int* array_2 = new int[*size_2];
 
+	for (int i = 0, j=0; i < size_1; i++) {
+		if (*(array_1+i)<(*average)) {
+			*(array_2 + j) = *(array_1+i);
+			j++;
+		}
+	}
+
+	return array_2;
+}
 
 
 

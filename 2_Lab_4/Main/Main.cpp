@@ -3,37 +3,40 @@
 
 
 void main() {
-	setlocale(LC_ALL,"RU");
+	setlocale(LC_ALL, "RU");
 
-	int size = 0;
-	double average = 0;
-	int size_of_new_array = 0;
+	int size_1 = 0, size_2 = 0;			// Инициализация переменных
+	double average = 0;			
+	int *array_2 ;
 
-	printf("Введите размер массива: ");
-	scanf_s("%d", &size);
+	printf("Введите размер массива: ");	// Узнаём размер массива
+	scanf_s("%d",&size_1);
 
-	int* array = new int[size];
-	int* new_array = new int[size];
+	int* array_1 = new int[size_1];		// Инициализация динамического массива
 
-	array_filling(array,size);
+	printf("Выполняется инициализация массива...\n");
+	array_filling(array_1,size_1);		// Заполнение массива
 
-	printf("Наш массив: ");
+	printf("Основной массив: ");
+	for (int i = 0; i < size_1; i++) {
+		printf("%d ", *(array_1 + i)); 
+	}									//Вывод основного массива
 
-	for (int i = 0; i < size; i++) {
-		printf("%d ",*(array+i));
+
+	printf("\nВыполнение основной функции...\n");
+
+
+	array_2=function(array_1,size_1,&size_2,&average);
+
+	printf("Среднее значение: %2.2f \n", average);
+
+	printf("Вывод нового массива(меньше среднего): ");
+	
+	for (int i = 0; i < size_2;i++) {
+		printf("%d ",*(array_2+i));
 	}
-	printf("\n");
-	average_func(array, new_array, size, &average, &size_of_new_array);
 
-	printf("Average: %1.2lf\n",average);
+	delete[]array_1;
+	delete[]array_2;
 
-	printf("Новый массив: ");
-
-	for (int i = 0; i < size_of_new_array; i++) {
-		printf("%d ",*(new_array+i));
-	}
-
-
-	delete [] array;
-	delete [] new_array;
 }
