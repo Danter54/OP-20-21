@@ -10,11 +10,11 @@ int main() {
             arr[i - j][j] = count++;
         }
     }
-    for (int j = 1; j < n; j++) {
-        for (int i = 0; i <= n-1 - j; i++) {
-            arr[(n-1) - i][j + i] = count++;
+        for (int j = 1; j < n; j++) {
+            for (int i = 0; i <= n-1 - j; i++) {
+                arr[(n-1) - i][j + i] = count++;
+            }
         }
-    }
 
     for (int i = 0; i < n; i++)
     {
