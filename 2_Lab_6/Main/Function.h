@@ -5,10 +5,9 @@
 #include <iostream>
 #include <stdio.h>
 #include <string.h>
+#define SIZE (80)
 
-
-int str_alignment(char* st1, char* st2);
-
+void fill_str(char* str, int * size);
 
 #endif // !FUNCTION
 

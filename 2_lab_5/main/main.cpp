@@ -7,7 +7,7 @@ int main()
 	int* array1 = new int[N*N];
 	int** array2 = new int* [N];
 	for (int i = 0; i < N; i++) {
-		array2[i] = new int[N];		//увкпцукпц
+		array2[i] = new int[N];
 	}
 
 
