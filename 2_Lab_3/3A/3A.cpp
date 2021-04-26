@@ -1,32 +1,64 @@
-#include "Function_Header.h"
+#include "Functions.h"
 
 int main()
 {
-	setlocale(LC_ALL,"RU");
+	system("chcp 1251");
+	int array[SIZE];
+	int choice, count = 0, sum = 0;
 
-	int count = 0;
-	
-	int arr[N], copy[N];
-	int* a, * b;
+	fill_array(array);
 
-
-	std::cout << "Введите количество елементов в массиве (Не больше 50): ";
-	std::cin >> count;
-
-	if (count < 0 || count > 50 || count == 0) {
-		std::cout << "Введено неверное значение";
-		return 0;
+	std::cout << "Ваш массив: ";
+	for (int i = 0; i < SIZE; i++) {
+		std::cout << array[i] << ' ';
 	}
+	std::cout << std::endl;
+	std::cout << "Выберите метод адресации: \n";
+	std::cout << "0-выход из программы;\n";
 
-	init(arr,count);	// initialization of array
+	std::cout << "1-относительный адрес;\n";
+	std::cout << "2-через абсолютный адрес;\n";
+	std::cout << "3-не использовать индексацию;\n";
+	std::cout << "4-через массив указателей;\n";
+	std::cout << "5-через указатель на указатель;\n";
 
-	relative_address(arr, count);
-	absolute_address(arr, count);
-	without_indexing(arr, count);
-	array_of_pointers(arr,count);
-	pointer_to_pointer(arr, count);
-	pointer_parameter(arr,count);
+	std::cout << "Ваш выбор: ";
+	std::cin >> choice;
 
+		switch (choice) {
 
-	return 0;
+			case 0: { std::cout << "Выход из программы!!!";
+			return 0;
+			}
+
+			case 1: { relative_address(array, &count, &sum);
+				printf("Количество: %d\n", count);
+				std::cout << "Сумма:" << sum;
+				return 0;};
+
+			case 2: { absolute_address(array, &count, &sum);
+			printf("Количество: %d\n", count);
+			std::cout << "Сумма:" << sum;
+			return 0;};
+
+			case 3: {without_index(array, &count, &sum);
+			printf("Количество: %d\n", count);
+			std::cout << "Сумма:" << sum;
+			return 0;};
+
+			case 4: {array_of_pointer(array, &count, &sum);
+			printf("Количество: %d\n", count);
+			std::cout << "Сумма:" << sum;
+			return 0;};
+
+			case 5: {pointer_to_pointer(array, & count, & sum);
+				printf("Количество: %d\n", count);
+				std::cout << "Сумма:" << sum;
+				return 0; };
+
+			default: {
+				printf("Неверно введёное значение!!!");
+				return 1; }
+		}
+
 }
