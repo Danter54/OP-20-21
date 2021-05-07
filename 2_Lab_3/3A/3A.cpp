@@ -21,6 +21,7 @@ int main()
 	std::cout << "3-не использовать индексацию;\n";
 	std::cout << "4-через массив указателей;\n";
 	std::cout << "5-через указатель на указатель;\n";
+	std::cout << "6-через параметр указатели функции;\n";
 
 	std::cout << "Ваш выбор: ";
 	std::cin >> choice;
@@ -56,6 +57,10 @@ int main()
 				std::cout << "Сумма:" << sum;
 				return 0; };
 
+			case 6:f_par(array,&count, &sum);
+				printf("Количество: %d\n", count);
+				std::cout << "Сумма:" << sum;
+				break;
 			default: {
 				printf("Неверно введёное значение!!!");
 				return 1; }

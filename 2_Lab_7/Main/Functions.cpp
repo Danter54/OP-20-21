@@ -169,7 +169,7 @@ int print_one(int* counter) {
 		if (count > 0 && count <= (*counter)) {
 			break;
 		}
-		else cout << "Неверно введёный номер!!!";
+		else cout << "Неверно введёный номер!!!\n";
 	}
 
 	

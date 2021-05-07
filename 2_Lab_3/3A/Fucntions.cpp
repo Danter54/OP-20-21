@@ -64,3 +64,12 @@ void pointer_to_pointer(int array[], int* count, int* sum) {
 		}
 	}
 }
+
+void f_par(int *array, int *count, int* sum) {
+	for (int i = 0; i < SIZE; i++) {
+		if (*(array+i)<0) {
+			*sum += *(array + i);
+			(*count)++;
+		}
+	}
+}
