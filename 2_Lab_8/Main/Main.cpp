@@ -34,6 +34,7 @@ int main() {
 				Show(head);
 				break;
 		case 3:
+			Check(head,&size);
 				break;
 		case 4:	
 				AddEl(head,&size);
@@ -48,6 +49,11 @@ int main() {
 				Add_to_File(head);
 				break;
 		case 8:
+			if (head!=NULL) {
+				printf("Список уже создан!!!\n");
+				break;
+			}
+			head = CreatList_File(&size);
 			break;
 		case 9:
 			return 0;

@@ -16,10 +16,12 @@ int main()
 	}
 
 	int** matrix;
-	int* min = new int[N];
-	int* max = new int[M];
+	int* min = new int[M];
+	int* max = new int[N];
 	int sum = 0;
-	int mult = 0;
+	int mult = 1;
+
+	int *p_array = nullptr;
 
 	matrix = new int* [N];
 	for (int i = 0; i < N; i++) {	//Инициализация массива
@@ -28,6 +30,18 @@ int main()
 
 	random_add(matrix, &N, &M);
 	print(matrix, &N, &M);
-	task(matrix,N,M, min, max, &sum, &mult);
+	p_array = task(matrix,N,M, min, max, &sum, &mult);
+
+	printf("Max: ");
+	printf("%d",p_array[0]);
+	printf("\n");
+
+	printf("MIN:");
+	printf("%d", p_array[1]);
+	printf("\n");
+
+	delete[] p_array;
+	delete[]min;
+	delete[]max;
 	return 0;
 }

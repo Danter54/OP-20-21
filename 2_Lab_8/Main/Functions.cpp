@@ -33,6 +33,159 @@ void Creat(Node** head, int* size) {
 
 }
 
+void Check(Node*head, int *size) {
+
+	if (head==NULL) {
+		printf("Списка не сувществует!!!\n");
+		return;
+	}
+	int choice = 0;
+	
+
+	printf("Выберите критерий поиска: \n");
+	printf("1-По автору\n");
+	printf("2-По названию\n");
+	printf("3-По году\n");
+	printf("4-По группе\n");
+	printf("Ваш выбор: ");
+	scanf_s("%d", &choice);
+
+	bool b_temp = false;
+	Node* temp = head;
+	switch (choice) {
+	case 1:{
+		char t_surname[30];
+		printf("Введите фамилию: ");
+		scanf_s("%s", t_surname, 30);
+		while (temp != NULL) {
+			if (strcmp(temp->book.surname, t_surname) == 0) {
+				b_temp = true;
+			}
+			temp = temp->next;
+		}
+		if (b_temp == true) {
+			std::cout << "---------------------------------------------------" << std::endl;
+			std::cout << "|                 Каталог библиотеки              |" << std::endl;
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			std::cout << "| Автор книги |  Название  | Год выпуска | Группа |" << std::endl;
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			for (int i = 0; i < (*size); i++) {
+				if (strcmp(head->book.surname, t_surname) == 0) {
+					printf("|  %9s  | %10s |    %5d    |    %c   |\n", head->book.surname, head->book.title, head->book.year, head->book.group);
+				}
+				head = head->next;
+			}
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			std::cout << "| Примечание: Х - художественная литература;      |" << std::endl;
+			std::cout << "| У - учебная литература; С - справочная литера - |" << std::endl;
+			std::cout << "| тура                                            |" << std::endl;
+			std::cout << "---------------------------------------------------" << std::endl;
+		}
+		else printf("Нет такого автора!!!\n");
+		break;
+	}
+	case 2:{
+		char t_title[30];
+		printf("Введите название: ");
+		scanf_s("%s", t_title, 30);
+		while (temp != NULL) {
+			if (strcmp(temp->book.title, t_title) == 0) {
+				b_temp = true;
+			}
+			temp = temp->next;
+		}
+		if (b_temp == true) {
+			std::cout << "---------------------------------------------------" << std::endl;
+			std::cout << "|                 Каталог библиотеки              |" << std::endl;
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			std::cout << "| Автор книги |  Название  | Год выпуска | Группа |" << std::endl;
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			for (int i = 0; i < (*size); i++) {
+				if (strcmp(head->book.title, t_title) == 0) {
+					printf("|  %9s  | %10s |    %5d    |    %c   |\n", head->book.surname, head->book.title, head->book.year, head->book.group);
+				}
+				head = head->next;
+			}
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			std::cout << "| Примечание: Х - художественная литература;      |" << std::endl;
+			std::cout << "| У - учебная литература; С - справочная литера - |" << std::endl;
+			std::cout << "| тура                                            |" << std::endl;
+			std::cout << "---------------------------------------------------" << std::endl;
+		}
+		else printf("Нет такой книги!!!\n");
+		break;
+	}
+	case 3: {
+		int t_year = 0;
+		printf("Введите год: ");
+		scanf_s("%d", &t_year);
+		while (temp != NULL) {
+			if (temp->book.year == t_year) {
+				b_temp = true;
+			}
+			temp = temp->next;
+		}
+
+		if (b_temp == true) {
+			std::cout << "---------------------------------------------------" << std::endl;
+			std::cout << "|                 Каталог библиотеки              |" << std::endl;
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			std::cout << "| Автор книги |  Название  | Год выпуска | Группа |" << std::endl;
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			for (int i = 0; i < (*size); i++) {
+				if (head->book.year == t_year) {
+					printf("|  %9s  | %10s |    %5d    |    %c   |\n", head->book.surname, head->book.title, head->book.year, head->book.group);
+				}
+				head = head->next;
+			}
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			std::cout << "| Примечание: Х - художественная литература;      |" << std::endl;
+			std::cout << "| У - учебная литература; С - справочная литера - |" << std::endl;
+			std::cout << "| тура                                            |" << std::endl;
+			std::cout << "---------------------------------------------------" << std::endl;
+		}
+		else printf("Нет такой книги!!!\n");
+		break; }
+	case 4:
+	{
+		char t_group;
+		printf("Введите группу: ");
+		std::cin >> t_group;
+
+		while (temp != NULL) {
+			if (t_group==temp->book.group) {
+				b_temp = true;
+			}
+			temp = temp->next;
+		}
+
+		if (b_temp == true) {
+			std::cout << "---------------------------------------------------" << std::endl;
+			std::cout << "|                 Каталог библиотеки              |" << std::endl;
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			std::cout << "| Автор книги |  Название  | Год выпуска | Группа |" << std::endl;
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			for (int i = 0; i < (*size); i++) {
+				if (head->book.group == t_group) {
+					printf("|  %9s  | %10s |    %5d    |    %c   |\n", head->book.surname, head->book.title, head->book.year, head->book.group);
+				}
+				head = head->next;
+			}
+			std::cout << "|-------------------------------------------------|" << std::endl;
+			std::cout << "| Примечание: Х - художественная литература;      |" << std::endl;
+			std::cout << "| У - учебная литература; С - справочная литера - |" << std::endl;
+			std::cout << "| тура                                            |" << std::endl;
+			std::cout << "---------------------------------------------------" << std::endl;
+		}
+		else printf("Нет такой книги!!!\n");
+	}
+		break;
+	default:printf("Введите верное значение!!!\n");
+		break;
+	}
+
+}
+
 void Show(Node* head) {
 	if (head == NULL) {
 		printf("Списка нет!!!\n");
@@ -56,7 +209,6 @@ void Show(Node* head) {
 	std::cout << "---------------------------------------------------" << std::endl;
 
 }
-
 
 void AddEl(Node* head, int* size) {
 	Node* temp = NULL;
@@ -158,9 +310,6 @@ void Merg(Node* head, int* size) {
 		}
 	}
 	free(temp);
-
-
-
 }
 
 void Add_to_File(Node* head) {
@@ -183,4 +332,36 @@ void Add_to_File(Node* head) {
 
 	fclose(Libr_f);
 
+}
+
+Node *CreatList_File(int *size) {
+
+	FILE* Lib_f;
+
+	fopen_s(&Lib_f,"Library.txt", "rt");
+
+	if (Lib_f==NULL) {
+		printf("Файл не удалось открыть!!!\n");
+		return NULL;
+	}
+
+	Node* tmp = NULL, *begin, *head;
+	head= begin = tmp = (Node*)malloc(sizeof(Node));
+
+	
+	while (!feof(Lib_f))
+	{
+		(*size)++;
+		fscanf_s(Lib_f, "%s", tmp->book.surname, 30);
+		fscanf_s(Lib_f, "%s", tmp->book.title, 30);
+		fscanf_s(Lib_f, "%d ", &tmp->book.year);
+		fscanf_s(Lib_f, "%c\n", &tmp->book.group);
+		begin->next = tmp;
+		begin = tmp;
+
+		tmp = (Node*)malloc(sizeof(Node));
+	}
+	begin->next = NULL;
+	fclose(Lib_f);
+	return head;
 }
