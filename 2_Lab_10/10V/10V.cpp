@@ -68,6 +68,7 @@ int main() {
 	obj1.Print();
 
 	SUM obj2;
+
 	SUM* p_obj = &obj2;
 
 	p_obj->Init_XY();

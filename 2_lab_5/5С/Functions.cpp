@@ -1,5 +1,8 @@
 
 
+
+
+
 void Buble(int*array ,int size) {
 	for (int i = 0; i < size-1; i++) {
 		for (int j = (size - 1); j > i; j--) {
@@ -60,4 +63,9 @@ void Selection(int* array, int size) {
 			array[min] = buf;
 		}
 	}
+}
+
+void Sort(int *array, int size, void (*univerasal)(int* array, int N))
+ {
+	univerasal(array, size);
 }
