@@ -13,10 +13,13 @@ int main()
 	Init_array(array1, size);
 	Write_arr2(array1, array2, size);
 
+	printf("Array2: ");
 	for (int i = 0; i < size; i++) {
 		std::cout << array2[i] << ' ';
 	} 
+	printf("\n");
 
+	Read_File(size);
 
 
 }
