@@ -3,7 +3,7 @@
 
 void Area::calculating(int x, int y)
 {
-	if (y==1) {
+	if (y==0) {
 		y = x;
 	}
 

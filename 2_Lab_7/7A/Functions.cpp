@@ -11,6 +11,7 @@ void Init_array(int* array, int size) {
 void Write_arr2(int* array1, int* array2, int size) {
 	FILE* f1 = NULL;
 	FILE* f2 = NULL;
+
 	fopen_s(&f1, "file1.txt", "w");
 	if (f1 == NULL) {
 		printf("Не удалось открыть файл\n");

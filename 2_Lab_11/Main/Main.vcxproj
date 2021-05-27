@@ -19,13 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Functions.cpp" />
+    <ClCompile Include="Library.cpp" />
+    <ClCompile Include="Main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Functions.h" />
+    <ClInclude Include="Library.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{8a8b149f-307c-4051-ab8c-12444f3f88ec}</ProjectGuid>
-    <RootNamespace>GameOfLife</RootNamespace>
+    <ProjectGuid>{a4d5670e-c364-4ae6-b22a-143de897570b}</ProjectGuid>
+    <RootNamespace>Main</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

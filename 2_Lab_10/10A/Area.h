@@ -4,7 +4,7 @@ class Area
 private:
 	int res;
 public:
-	void calculating(int x, int y = 1);
+	void calculating(int x, int y = 0);
 
 };
 
